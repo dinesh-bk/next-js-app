@@ -76,7 +76,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
     }
 
     // nextjs store the route segments in cache for smooth navigation
-    // since we are updating the data displayed in the invoices route we need to clear this cached and trigger new request to server for we use revalidatePath
+    // since we are updating the data displayed in the invoices route we need to clear this cached and trigger new request to server so for this we use revalidatePath
     // once the database gets updated path will be revalidated and fresh data will be fetched from the server
     revalidatePath("/dashboard/invoices")
     redirect("/dashboard/invoices")

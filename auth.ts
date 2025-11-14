@@ -19,11 +19,19 @@ async function getUser(email: string): Promise<User | undefined> {
     }
 }
 
+// auth: This is your main tool for interacting with the session on the server (in Server Components, Route Handlers, or API routes). You call it as a function to get the session details.
+
+// signIn: A server-side function to trigger the sign-in process.
+
+// signOut: A server-side function to trigger the sign-out process.
+
 export const { auth, signIn, signOut } = NextAuth({
     ...authConfig,
     providers: [
         Credentials({
             async authorize(credentials) {
+                // above credentials is an object created from the inputs in the form fields, here is email and password
+                // Where is form fields? 
                 const parsedCredentials = z
                     .object({
                         email: z.string().email(),
